@@ -51,7 +51,7 @@ Se recomienda incluir capturas de pantalla de los dashboards para mostrar la est
 
 ## 🎓 Formación Relacionada
 
-Este proyecto fue desarrollado como práctica y evidencia de los conocimientos adquiridos durante una especialización en Business Intelligence cursada a través de Coursera.
+Este proyecto fue desarrollado como práctica y evidencia de los conocimientos adquiridos durante una especialización en Microsoft Power BI Data Analyst cursada a través de Coursera.
 
 ## 👨‍💻 Autor
 
