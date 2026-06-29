@@ -59,9 +59,6 @@ Este proyecto fue desarrollado como práctica y evidencia de los conocimientos a
 
 Egresado de Tecnologías de la Información y Comunicaciones con experiencia en Business Intelligence, Power BI y análisis de datos.
 
-* GitHub: [Agregar enlace]
-* LinkedIn: [Agregar enlace]
-
 ## 📄 Licencia
 
 Este proyecto tiene fines educativos y de demostración profesional.
