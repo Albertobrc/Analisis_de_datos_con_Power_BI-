@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "1bad18141cf5650bdbee",
+  "position": {
+    "x": 321.11111111111109,
+    "y": 174.44444444444443,
+    "z": 3000,
+    "height": 124.44444444444444,
+    "width": 301.11111111111109,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "CleanData"
+                        }
+                      },
+                      "Property": "Margin"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(CleanData.Margin)",
+              "nativeQueryRef": "Suma de Margin"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "CleanData"
+                      }
+                    },
+                    "Property": "Margin"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

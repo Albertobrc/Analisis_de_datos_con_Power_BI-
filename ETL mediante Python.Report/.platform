@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "ETL mediante Python"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "22f6f857-14db-4222-bc2e-2a62be8e0a88"
+  }
+}

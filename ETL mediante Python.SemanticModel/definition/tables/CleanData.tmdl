@@ -1,0 +1,141 @@
+table CleanData
+	lineageTag: 97d51b0d-ee27-42bd-8910-c169c3a903ac
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: f87b6b1e-5c5b-4dc1-aabc-690b70fe17da
+		summarizeBy: count
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductName
+		dataType: string
+		lineageTag: aac9847a-0666-4bcf-a97c-19b96fcb1110
+		summarizeBy: none
+		sourceColumn: ProductName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Price
+		dataType: double
+		formatString: 0.00
+		lineageTag: 5da6175c-47c8-4254-bdc9-ff952d917bbf
+		summarizeBy: sum
+		sourceColumn: Price
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Standart Cost'
+		dataType: double
+		formatString: 0.00
+		lineageTag: c2157ee2-4432-4601-baaa-b0694e8f25d6
+		summarizeBy: sum
+		sourceColumn: Standart Cost
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 20e79b3c-50af-4d83-81c1-6419b831fcdb
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Color
+		dataType: string
+		lineageTag: e6e41cc7-da5b-4c19-a1e8-1bd4d17d4942
+		summarizeBy: none
+		sourceColumn: Color
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size
+		dataType: int64
+		formatString: 0
+		lineageTag: 6486c155-6610-435b-bc8a-81b72c0ec4fc
+		summarizeBy: sum
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: int64
+		formatString: 0
+		lineageTag: 37a1fc24-60bc-4493-bc3b-676ee129f6fd
+		summarizeBy: sum
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+	column UnitSale
+		dataType: int64
+		formatString: 0
+		lineageTag: b49f703e-7ef7-42d4-83a5-8ca86d42d236
+		summarizeBy: sum
+		sourceColumn: UnitSale
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalSales
+		dataType: double
+		formatString: 0
+		lineageTag: 732b1e11-1b87-4818-b256-ef17f15ca687
+		summarizeBy: sum
+		sourceColumn: TotalSales
+
+		annotation SummarizationSetBy = Automatic
+
+	column Margin
+		dataType: double
+		formatString: 0.00
+		lineageTag: 52da31e2-503a-4db7-be03-13c481d8dca1
+		summarizeBy: sum
+		sourceColumn: Margin
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: eaa85934-603c-4c8c-9961-ef2f27d8525e
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variación
+			isDefault
+			relationship: 720c7caf-c74b-4bfa-acac-727c7f6d4c19
+			defaultHierarchy: LocalDateTable_60a8abae-3f04-47b7-bb01-b9332b1993ab.'Jerarquía de fechas'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Region
+		dataType: string
+		lineageTag: 986aee78-7530-4498-b742-f8eb1add90d0
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition CleanData = m
+		mode: import
+		source =
+				let
+				    Origen = Excel.Workbook(File.Contents("C:\Users\Alberto\Documents\ETL-Python\PracticaETL_Clean.xlsx"), null, true),
+				    CleanData_Sheet = Origen{[Item="CleanData",Kind="Sheet"]}[Data],
+				    #"Encabezados promovidos" = Table.PromoteHeaders(CleanData_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos",{{"ProductKey", Int64.Type}, {"ProductName", type text}, {"Price", type number}, {"Standart Cost", type number}, {"Category", type text}, {"Color", type text}, {"Size", Int64.Type}, {"Weight", Int64.Type}, {"UnitSale", Int64.Type}, {"TotalSales", type number}, {"Margin", type number}, {"Margin %", type number}}),
+				    #"Columnas quitadas" = Table.RemoveColumns(#"Tipo cambiado",{"Margin %"})
+				in
+				    #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+
