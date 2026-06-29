@@ -2,7 +2,7 @@
 
 ## 📌 Descripción
 
-Este repositorio contiene una colección de dashboards desarrollados en Power BI como parte de mi proceso de aprendizaje y aplicación práctica de los conocimientos adquiridos durante una especialización en Business Intelligence realizada a través de Coursera.
+Este repositorio contiene una colección de dashboards desarrollados en Power BI como parte de mi proceso de aprendizaje y aplicación práctica de los conocimientos adquiridos durante una especialización en Microsoft Power BI Data Analyst realizada a través de Coursera.
 
 El objetivo del proyecto es demostrar competencias en análisis de datos, modelado de datos, creación de métricas con DAX y diseño de reportes interactivos orientados a la toma de decisiones.
 
